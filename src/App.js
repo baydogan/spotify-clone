@@ -25,9 +25,9 @@ function App() {
             "Content-Type": "application/x-www-form-urlencoded",
             Authorization:
               "Basic " +
-              new Buffer("f3d3f4d889e3492ead16621f6f03d90f" + ":" + "a41e67ce08ee4ac994c0a92a656132df").toString(
-                "base64"
-              ),
+              new Buffer(
+                process.env.REACT_APP_SPOTIFY_CLIENT_ID + ":" + process.env.REACT_APP_SPOTIFY_CLIENT_SECRET
+              ).toString("base64"),
           },
         }
       );
@@ -38,7 +38,7 @@ function App() {
     const url = "https://accounts.spotify.com/authorize";
     const params = {
       response_type: "code",
-      client_id: "f3d3f4d889e3492ead16621f6f03d90f",
+      client_id: process.env.REACT_APP_SPOTIFY_CLIENT_ID,
       scope:
         "user-read-private user-read-email playlist-modify-private playlist-read-collaborative playlist-read-private playlist-modify-public user-read-recently-played user-top-read user-read-playback-position user-read-playback-state user-modify-playback-state user-modify-playback-state",
       show_dialog: true,
