@@ -6,6 +6,7 @@ import queryString from "query-string";
 
 //pages
 import Login from "pages/Login";
+import Home from "pages/Home";
 
 function App() {
   useEffect(() => {
@@ -13,24 +14,28 @@ function App() {
     const token = Object.fromEntries(urlSearchParams.entries());
 
     if (token.code) {
-      axios.post(
-        "https://accounts.spotify.com/api/token",
-        queryString.stringify({
-          code: token.code,
-          redirect_uri: "http://localhost:3000/",
-          grant_type: "authorization_code",
-        }),
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            Authorization:
-              "Basic " +
-              new Buffer(
-                process.env.REACT_APP_SPOTIFY_CLIENT_ID + ":" + process.env.REACT_APP_SPOTIFY_CLIENT_SECRET
-              ).toString("base64"),
-          },
-        }
-      );
+      axios
+        .post(
+          "https://accounts.spotify.com/api/token",
+          queryString.stringify({
+            code: token.code,
+            redirect_uri: "http://localhost:3000/",
+            grant_type: "authorization_code",
+          }),
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              Authorization:
+                "Basic " +
+                new Buffer(
+                  process.env.REACT_APP_SPOTIFY_CLIENT_ID + ":" + process.env.REACT_APP_SPOTIFY_CLIENT_SECRET
+                ).toString("base64"),
+            },
+          }
+        )
+        .then((res) => {
+          localStorage.setItem("access_token", res.data.access_token);
+        });
     }
   }, []);
 
@@ -40,7 +45,7 @@ function App() {
       response_type: "code",
       client_id: process.env.REACT_APP_SPOTIFY_CLIENT_ID,
       scope:
-        "user-read-private user-read-email playlist-modify-private playlist-read-collaborative playlist-read-private playlist-modify-public user-read-recently-played user-top-read user-read-playback-position user-read-playback-state user-modify-playback-state user-modify-playback-state",
+        "streaming app-remote-control user-follow-read user-follow-modify ugc-image-upload user-read-private user-library-modify user-library-read user-read-email playlist-modify-private playlist-read-collaborative playlist-read-private playlist-modify-public user-read-recently-played user-top-read user-read-currently-playing user-read-playback-position user-read-playback-state user-modify-playback-state user-modify-playback-state",
       show_dialog: true,
       redirect_uri: "http://localhost:3000/",
     };
@@ -52,7 +57,8 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Login spotifyLogin={spotifyLogin} />} />
+          <Route path="login" element={<Login spotifyLogin={spotifyLogin} />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </Router>
     </div>
