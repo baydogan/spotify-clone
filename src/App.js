@@ -3,16 +3,21 @@ import axios from "axios";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Buffer } from "buffer";
 import queryString from "query-string";
+import SpotifyLogo from "assets/SpotifyLogo";
 
 //pages
 import Login from "pages/Login";
-import Home from "pages/Home";
+import Sidebar from "components/SideBar/SideBar";
+import Content from "components/Content/Content";
+import Player from "components/Player/Player";
+import NavBar from "components/NavBar/NavBar";
 
 function App() {
-  useEffect(() => {
-    const urlSearchParams = new URLSearchParams(window.location.search);
-    const token = Object.fromEntries(urlSearchParams.entries());
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const token = Object.fromEntries(urlSearchParams.entries());
+  const localStorageToken = localStorage.getItem("access_token");
 
+  useEffect(() => {
     if (token.code) {
       axios
         .post(
@@ -54,14 +59,13 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route path="login" element={<Login spotifyLogin={spotifyLogin} />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </Router>
-    </div>
+    <Router>
+     <div className="wrapper">
+        <Sidebar />
+        <Content />
+     </div>
+      <Player />
+    </Router>
   );
 }
 

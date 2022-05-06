@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply h-full;
+  }
+  #root {
+    @apply flex flex-col;
+  }
+
+  .wrapper {
+    height: calc(100% - theme("spacing.24"));
+    @apply flex;
+  }
+  .side-menu-icon {
+    @apply fill-gray-300 hover:fill-white transition-all duration-300;
+  }
+  .side-menu-icon-active {
+    @apply fill-white;
+  }
+
+  .side-menu-items{
+    @apply flex items-center text-gray-300 font-semibold transition-all duration-300 text-sm hover:text-white fill-white gap-x-4
+  }
+
+  .side-menu-items-active{
+    @apply flex items-center text-white font-semibold text-sm hover:text-white fill-white gap-x-4
+  }
+}

@@ -1,4 +1,4 @@
-import SpotifyLogo from "components/SpotifyLogo";
+import SpotifyLogo from "assets/SpotifyLogo";
 
 const Login = ({spotifyLogin}) => {
   return (
