@@ -6,11 +6,15 @@ if (localStorage.getItem("access_token")) {
 }
 
 export const getMe = async () => {
-    return spotifyApi.getMe();
-}
+  return spotifyApi.getMe();
+};
 
 export const getMyRecentlyPlayedTracks = async () => {
   return spotifyApi.getMyRecentlyPlayedTracks({ limit: 50 });
+};
+
+export const getMyPlayLists = async () => {
+  return spotifyApi.getUserPlaylists();
 };
 
 export const getMyRecomendations = async () => {

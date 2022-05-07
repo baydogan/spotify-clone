@@ -3,14 +3,13 @@ import axios from "axios";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Buffer } from "buffer";
 import queryString from "query-string";
-import SpotifyLogo from "assets/SpotifyLogo";
 
 //pages
 import Login from "pages/Login";
 import Sidebar from "components/SideBar/SideBar";
 import Content from "components/Content/Content";
 import Player from "components/Player/Player";
-import NavBar from "components/NavBar/NavBar";
+import Home from "pages/Home";
 
 function App() {
   const urlSearchParams = new URLSearchParams(window.location.search);
@@ -58,13 +57,22 @@ function App() {
     window.location.href = `${url}?${querryParams}`;
   };
 
+  const changeBackground = () => {
+    console.log(window.scrollY);
+  };
+
+  window.addEventListener("scroll", changeBackground);
+
   return (
     <Router>
-     <div className="wrapper">
+      <div className="wrapper">
         <Sidebar />
         <Content />
-     </div>
+      </div>
       <Player />
+      <Routes>
+        <Route path="/login" element={<Login spotifyLogin={spotifyLogin} />} />
+      </Routes>
     </Router>
   );
 }
