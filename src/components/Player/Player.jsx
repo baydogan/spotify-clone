@@ -1,7 +1,7 @@
 import React from "react";
 
 const Player = () => {
-  return <div className="sticky z-10 h-[96px] bg-slate-300 ">Player</div>;
+  return <div className="w-full sticky  px-2 py-3 bg-slate-700 h-[96px]">Player</div>;
 };
 
 export default Player;

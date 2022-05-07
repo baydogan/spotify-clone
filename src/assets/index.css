@@ -8,9 +8,6 @@
   #root {
     @apply h-full;
   }
-  #root {
-    @apply flex flex-col;
-  }
 
   .wrapper {
     height: calc(100% - theme("spacing.24"));

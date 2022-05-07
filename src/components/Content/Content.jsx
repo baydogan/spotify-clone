@@ -1,16 +1,14 @@
 import Home from "pages/Home";
+import Search from "pages/Search";
 import Navbar from "components/NavBar/NavBar";
-import Player from "components/Player/Player";
+
 import { Routes, Route } from "react-router-dom";
 
-const Content = () => {
+const Content = ({ children }) => {
   return (
     <div className="flex-auto overflow-auto">
-      <Navbar />    
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-
+      <Navbar />
+      {children}
     </div>
   );
 };

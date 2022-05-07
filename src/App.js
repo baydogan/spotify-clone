@@ -7,9 +7,12 @@ import queryString from "query-string";
 //pages
 import Login from "pages/Login";
 import Sidebar from "components/SideBar/SideBar";
-import Content from "components/Content/Content";
 import Player from "components/Player/Player";
+import Navbar from "components/NavBar/NavBar";
 import Home from "pages/Home";
+import Search from "pages/Search";
+import Content from "components/Content/Content";
+import Collection from "pages/Collection";
 
 function App() {
   const urlSearchParams = new URLSearchParams(window.location.search);
@@ -57,22 +60,20 @@ function App() {
     window.location.href = `${url}?${querryParams}`;
   };
 
-  const changeBackground = () => {
-    console.log(window.scrollY);
-  };
-
-  window.addEventListener("scroll", changeBackground);
-
   return (
     <Router>
       <div className="wrapper">
         <Sidebar />
-        <Content />
+        <Content>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/login" element={<Login />} spotifyLogin={spotifyLogin} />
+            <Route path="/collection" element={<Collection />} />
+          </Routes>
+        </Content>
       </div>
       <Player />
-      <Routes>
-        <Route path="/login" element={<Login spotifyLogin={spotifyLogin} />} />
-      </Routes>
     </Router>
   );
 }
