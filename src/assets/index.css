@@ -3,16 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-  html,
+  /* html,
   body,
   #root {
     @apply h-full;
-  }
+  } */
 
-  .wrapper {
-    height: calc(100% - theme("spacing.24"));
-    @apply flex;
-  }
+
   .side-menu-icon {
     @apply fill-gray-300 hover:fill-white transition-all duration-300;
   }

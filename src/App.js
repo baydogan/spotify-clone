@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Buffer } from "buffer";
@@ -17,7 +17,11 @@ import Collection from "pages/Collection";
 function App() {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const token = Object.fromEntries(urlSearchParams.entries());
-  const localStorageToken = localStorage.getItem("access_token");
+
+
+
+
+
 
   useEffect(() => {
     if (token.code) {
@@ -42,6 +46,10 @@ function App() {
         )
         .then((res) => {
           localStorage.setItem("access_token", res.data.access_token);
+          console.log(res.data);
+        })
+        .then(() => {
+          window.location.href = "/";
         });
     }
   }, []);
@@ -62,13 +70,13 @@ function App() {
 
   return (
     <Router>
-      <div className="wrapper">
+      <div className="flex h-[90vh] relative  " onScroll={(e) => console.log(e)}>
         <Sidebar />
         <Content>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
-            <Route path="/login" element={<Login />} spotifyLogin={spotifyLogin} />
+            <Route path="/login" element={<Login spotifyLogin={spotifyLogin} />} />
             <Route path="/collection" element={<Collection />} />
           </Routes>
         </Content>

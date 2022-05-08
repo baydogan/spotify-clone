@@ -10,7 +10,7 @@ export const getMe = async () => {
 };
 
 export const getMyRecentlyPlayedTracks = async () => {
-  return spotifyApi.getMyRecentlyPlayedTracks({ limit: 50 });
+  return spotifyApi.getMyRecentlyPlayedTracks();
 };
 
 export const getMyPlayLists = async () => {
@@ -21,5 +21,18 @@ export const getMyRecomendations = async () => {
   return spotifyApi.getRecommendations({
     limit: 50,
     seed_genres: "pop",
+  });
+};
+
+export const getMyTopArtists = async () => {
+  return spotifyApi.getMyTopArtists({
+    limit: 50,
+    time_range: "short_term",
+  });
+};
+
+export const getMySavedTracks = async () => {
+  return spotifyApi.getMySavedTracks({
+    limit: 50,
   });
 };

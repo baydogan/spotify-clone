@@ -2,7 +2,7 @@
     "compilerOptions": {
       "baseUrl": "src"
     },
-    "include": ["src"],
+    "include": ["src", "src/components/ItemCard.jsx"],
     "exclude": ["node_modules", "build"]
   }
   

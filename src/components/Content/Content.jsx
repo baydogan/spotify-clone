@@ -1,14 +1,17 @@
-import Home from "pages/Home";
-import Search from "pages/Search";
 import Navbar from "components/NavBar/NavBar";
-
-import { Routes, Route } from "react-router-dom";
+import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import { useState, useEffect } from "react";
+import { getMySavedTracks } from "services/spotifyApi";
 
 const Content = ({ children }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
   return (
-    <div className="flex-auto overflow-auto">
-      <Navbar />
-      {children}
+    <div className="flex-auto overflow-auto overflow-y-scroll  bg-[#121212] ">
+      <ReactScrollWheelHandler downHandler={() => setIsScrolled(true)} upHandler={() => setIsScrolled(false)}>
+        <Navbar isScrolled={isScrolled} />
+        {children}
+      </ReactScrollWheelHandler>
     </div>
   );
 };

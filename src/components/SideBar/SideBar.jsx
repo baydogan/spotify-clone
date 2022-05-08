@@ -1,15 +1,16 @@
 import spotifyWhite from "../../assets/spotifywhite.png";
 import Menu from "./Menu";
 import Playlists from "./Playlists";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <nav className="relative w-[300px] bg-black p-6 min-h-screen">
-      <img className="w-[132px]" src={spotifyWhite} alt="" />
+    <nav className="relative w-[300px] bg-black p-6  overflow-auto">
+      <Link to="/">
+        <img className="w-[132px]" src={spotifyWhite} alt="" />
+      </Link>
       <Menu />
-      <div className="border-b mt-4 border-[#282828]">
-
-      </div>
+      <div className="border-b mt-4 border-[#282828]"></div>
       <Playlists />
     </nav>
   );

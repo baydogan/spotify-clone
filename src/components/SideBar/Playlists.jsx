@@ -15,7 +15,7 @@ const Playlists = () => {
       {playlist &&
         playlist.map((list, index) => {
           return (
-            <span className="text-gray-400 text-sm mt-3" key={index}>
+            <span className="text-gray-400 text-sm mt-3 hover:text-white cursor-default" key={index}>
               {list.name}
             </span>
           );
