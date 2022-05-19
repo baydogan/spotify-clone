@@ -20,7 +20,7 @@ export const getMyPlayLists = async () => {
 export const getMyRecomendations = async () => {
   return spotifyApi.getRecommendations({
     limit: 50,
-    seed_genres: "pop",
+    seed_genres: "rock",
   });
 };
 
@@ -36,3 +36,12 @@ export const getMySavedTracks = async () => {
     limit: 50,
   });
 };
+
+export const getArtists = async (ids) => {
+  return spotifyApi.getArtists(ids);
+};
+
+
+export const getCategoryPlaylists = async (categoryId) => {
+  return spotifyApi.getCategoryPlaylists(categoryId);
+}

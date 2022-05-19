@@ -1,11 +1,100 @@
-import React from 'react';
+import React from "react";
 
 const Collection = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-}
+  return (
+    <div className="flex flex-col">
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+      <span>LIB</span>
+    </div>
+  );
+};
 
 export default Collection;

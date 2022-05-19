@@ -70,7 +70,7 @@ function App() {
 
   return (
     <Router>
-      <div className="flex h-[90vh] relative  " onScroll={(e) => console.log(e)}>
+      <div className="flex h-[92vh] relative  " onScroll={(e) => console.log(e)}>
         <Sidebar />
         <Content>
           <Routes>

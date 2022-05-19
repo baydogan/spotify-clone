@@ -15,7 +15,7 @@ const Profile = ({setIsPopupOpen, isPopupOpen}) => {
 
   return (
     <button className="bg-black rounded-3xl h-8 pr-0 md:pr-2 flex items-center gap-x-2 relative  hover:bg-[#282828]" onClick={() => setIsPopupOpen(!isPopupOpen)}>
-      <img className="w-8 rounded-full " src={image} alt="" />
+      <img className="w-7 rounded-full " src={image} alt="" />
       <h1 className="text-white text-sm font-semibold hidden md:flex">{profile.display_name}</h1>
       <div className="hidden md:flex">
       <ProfileArrow  />

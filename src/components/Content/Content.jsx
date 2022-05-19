@@ -10,7 +10,7 @@ const Content = ({ children }) => {
     <div className="flex-auto overflow-auto overflow-y-scroll  bg-[#121212] ">
       <ReactScrollWheelHandler downHandler={() => setIsScrolled(true)} upHandler={() => setIsScrolled(false)}>
         <Navbar isScrolled={isScrolled} />
-        {children}
+        <div className="px-8 py-6">{children}</div>
       </ReactScrollWheelHandler>
     </div>
   );
